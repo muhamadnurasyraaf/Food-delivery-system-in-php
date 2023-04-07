@@ -12,3 +12,8 @@ else{
     loginButton.style.visibility = 'hidden';
     profile.style.visibility = 'visible';
 }
+
+document.getElementById("mySubmit").addEventListener("submit",function(event){
+    event.preventDefault();
+    window.location.href = "merchant-reg.php";
+});
