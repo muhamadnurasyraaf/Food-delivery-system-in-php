@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600;700&family=Poppins:wght@400;600;700&family=Signika:wght@600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+.logo{
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ff652f;
+    font-family: 'Signika',sans-serif;
+    margin-right: auto;
+    font-size: 2rem;
+    text-decoration: overline;
+    cursor: pointer;
+}
+.logo-icon{
+    max-width: 50px;
+}
+body{
+    font-family: 'Catamaran',sans-serif;
+    z-index: 2;
+}
+.navbar{
+    position: fixed;
+    display: flex;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 1.2em;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    z-index: 20;
+    background-color: white;
+}
+.mid{
+    padding: 0.5em 0.3em;
+    display: flex;
+    gap: 1rem;
+    margin-right:5%;
+    align-items: center;
+    border-radius: 4px;
+    flex-wrap: wrap;
+}
+.right{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.mid a{
+    font-weight: bold;
+    color: #86c232;
+    font-size: 17px;
+}
+.mid li a::after{
+    content: ' ';
+    display: block;
+    background-color: #61892f;
+    height: 3px;
+    width: 0;
+    border-radius: 4px;
+    transition: width 0.4s ease-in-out;
+}
+.mid li a:hover:after{
+    width: 100%;
+}
+.right a{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    color: #f8cb88;
+}
+.login-btn{
+    transition: all 0.2s ease-in;
+}
+.login-btn:hover{
+    color: white;
+    background-color: #f8cb88;
+}
+.bag{
+    position: relative;
+    max-width: 30px;
+}
+.cart:hover{
+    opacity: 0.5;
+    transition: 0.2s;
+}
+#cart-counter{
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+    padding: 0 5px;
+    border-radius: 5px;
+    background-color: red;
+    position: absolute;
+    top: 18%;
+    right: 13.5%;
+}
+.landing{
+    margin-top: 100px;
+    height: 75vh;
+    background-repeat: no-repeat;
+    background-image: url("pexels-ella-olsson-1640772.jpg");
+    background-size: cover;
+    margin-bottom: 100px;
+}
+.landing .seller-registration{
+    position: absolute;
+    height: 300px;
+    width: 200px;
+    left: 20%;
+    top: 60%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+.seller-registration p{
+    font-family: 'Poppins',sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+.in{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.brand-text{
+    font-family: 'Open Sans',sans-serif;
+    height: 30px;
+    border-radius: 4px;
+    outline: none;
+    padding: 4px;
+}
+
+.submit-btn{
+    font-weight: bold;
+    font-family: 'Poppins',sans-serif;
+    font-size: 20px;
+    color: white;
+    height: 40px;
+    border: none;
+    background-color: #86c232;
+    padding: 7px;
+    border-radius: 4px;
+    align-items: center;
+    text-align: center;
+}
+.promo{
+    margin: 10px 15%;
+}
+.promo h1{
+    margin-bottom: 12px;
+}
+.food{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    font-family: 'Poppins',sans-serif;
+    margin-bottom: 30px;
+}
+.img{
+    width: 282px;
+    height: 155px;
+    border-radius: 10px;
+}
+span{
+    font-family: 'Signika',sans-serif;
+    color: #ff652f;
+}
+.desc{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 10px;
+    max-width: 282px;
+    height: 155px;
+    transition: all .3s;
+}
+.desc div{
+   opacity: 0;
+   transition: all 0.3s ease-in;
+}
+.desc:hover .d,.desc:hover {
+    opacity: 1;
+    height: 420px;
+}
+.d{
+    display: flex;
+    flex-direction:column;
+    gap: 5px;
+    margin: 0 20px;
+    align-items: center;
+    pointer-events: none;
+}
+.d p{
+    font-size: 14px;
+    color: #6e6b70;
+}
+.icon{
+    width: 20px;
+    height: 20px;
+}
+.rating{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 5px;
+}
+.rating div{
+    opacity: 0;
+    display: flex;
+    transition: all 0.5s;
+}
+.desc:hover .rating{
+    opacity: 1;
+}
+.offer{
+    display: flex;
+    margin-top:5px;
+    gap: 5px;
+}
+.desc:hover .offer{
+    opacity: 1;
+}
+.all-promo{
+    color: #6e6b70;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    position: absolute;
+    right: 20%;
+    left: 20%;
+    padding: 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.all-promo:hover{
+    box-shadow: rgba(206, 118, 18, 0.12) 0px 1px 3px, rgba(214, 152, 6, 0.24) 0px 1px 2px;
+    color: #ff652f;
+}
+.category{
+    height: 100vh;
+}
+#profile{
+    position: absolute;
+    border-radius:20px;
+    right: 70px;
+}
+.user-icon{
+    width: 25px;
+    height: 25px;
+    padding: 5px 5px 0px;
+}
+.user{
+    display: flex;
+    align-items: center;
+    transform: translateX(5px);
+}
+.category{
+    display: flex;
+    flex-direction: column;
+    margin: 8% 10%;
+}
+.category .row div{
+    font-weight: bold;
+    font-size: 18px;
+    margin: 15px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 5px;
+    
+}
+.row{
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   grid-gap: 1em;
+   
+}
+.cat-icon{
+    border-radius: 5px;
+}
+.local{
+    width: 322px;
+    border-radius: 5px;
+}

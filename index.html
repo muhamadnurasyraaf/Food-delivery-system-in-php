@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="delivery-man.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Open+Sans:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Spice Boy</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="delivery-man.png" class="logo-icon">
+            <p>Spice Boy</p>
+        </div>
+        <div class="mid">
+            <li><a href="#land">Home</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">About</a></li>
+            <div class="right">
+                <a href="#" class="cart"> <img src="shopping-bag.png" class="bag"></a>
+                <p id="cart-counter">1</p>
+                
+
+                <div class="user">
+                    <a href="/login.html" class="login-btn" id="login-btn">Login/Register</a>
+                    <a href="#" id="profile"> <img src="icons/user.png" class="user-icon"> </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="landing" id="land">
+      <div class="seller-registration">
+        <p>Do you own a restaurant?You can use our platform to grow your bussiness</p>
+            <form action="merchant-reg.php" method="post" class="in">
+                <input type="text" name="brand" placeholder="Your food brand..." class="brand-text">
+                <a type="submit" href="merchant-reg.php" class="submit-btn" value="Submit" name="submit">Sign Up</a>
+            </form>
+      </div>
+    </div>
+    <hr>
+    <div class="promo">
+        <h1>Ramadan Promo by <span>Spice Boy</span></h1>
+        <div class="food">
+            <div class="desc">
+                <a href=""><img src="product-img/burgerking.webp" class="img promo-img"></a>
+                <div class="d">
+                    <h4>Burger King - KL Sentral</h4>
+                    <p>Halal, Western, Fast Food, Burgers, Grill</p>
+                    <div class="rating">
+                        <img src="icons/star.png" class="icon">
+                        <p>4.1</p>
+                        <img src="icons/time.png" class="icon">
+                        <p>45 mins &#183; 5.4km</p>    
+                    </div>
+                    <div class="offer">
+                        <img src="icons/gift-voucher.png" class="icon">
+                        <p>RM13.90 Items</p>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="desc">
+                <a href=""><img src="product-img/kfc.webp" class="img promo-img"></a>
+                <div class="d">
+                    <h4>KFC - Permata Complex</h4>
+                    <p>Burgers, Chicken, Fast Food, Fried Chicken</p>
+                    <div class="rating">
+                        <img src="icons/star.png" class="icon">
+                        <p>3.7</p>
+                        <img src="icons/time.png" class="icon">
+                        <p>40 mins &#183; 4km</p>    
+                    </div>
+                    <div class="offer">
+                        <img src="icons/gift-voucher.png" class="icon">
+                        <p>Up to 30% Off(up to RM5.50) with a min spend of RM25.Limited time only!</p>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="desc">
+                <a href=""><img src="product-img/mawar.webp" class="img promo-img"></a>
+                <div class="d">
+                    <h4>Mawar Merah Catering [&] Services - Tun Tan Cheng Lock</h4>
+                    <p>Local, Malaysian,Rice</p>
+                    <div class="rating">
+                        <img src="icons/star.png" class="icon">
+                        <p>4.5</p>
+                        <img src="icons/time.png" class="icon">
+                        <p>35 mins &#183; 42km</p>    
+                    </div>
+                    <div class="offer">
+                        <img src="icons/gift-voucher.png" class="icon">
+                        <p>Self Pick-Up promo.5% Off (code PICKUP5).Special 30% Off for new self pick-up users(code NEW2PICKUP).No min spend.</p>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="desc">
+                <a href=""><img src="product-img/mcd.webp" class="img promo-img"></a>
+                <div class="d">
+                    <h4>McDonald's -  M2 Mall 285</h4>
+                    <p>Halal, McDelivery Prices , Burgers , Fast Food ,Fried Chicken</p>
+                    <div class="rating">
+                        <img src="icons/star.png" class="icon">
+                        <p>4.5</p>
+                        <img src="icons/time.png" class="icon">
+                        <p>35 mins &#183; 4.2km</p>    
+                    </div>
+                    <div class="offer">
+                        <img src="icons/gift-voucher.png" class="icon">
+                        <p>Up to 30% Off(up to RM5.50) with a min spend of RM25.Limited time only!</p>
+                    </div>
+                    
+                </div>
+               
+            </div>
+            
+        </div>
+    </div>
+    <a href="#" class="all-promo">See All Promotions</a>
+    <div class="category">
+        <!--first row-->
+        <div class="row">
+            <div>
+                <a href=""><img src="product-img/fastfood.webp" class="cat-icon"></a>
+                <p>Fast Food</p>
+            </div>
+    
+            <div>
+                <a href=""><img src="product-img/featured.webp" class="cat-icon"></a>
+                <p>Featured</p>
+            </div>
+    
+            <div>
+                <a href=""><img src="product-img/western.webp" class="cat-icon"></a>
+                <p>Western</p>
+            </div>
+    
+            <div>
+                <a href=""><img src="product-img/noodles.webp" class="cat-icon"></a>
+                <p>Noodles</p>
+            </div>
+        </div>
+        
+
+        <!--Second Row-->
+        <div class="row">
+            <div>
+                <a href=""><img src="product-img/snack.webp" class="cat-icon"></a>
+                <p>Snack</p>
+            </div>
+    
+            <div>
+                <a href=""><img src="product-img/rice.webp" class="cat-icon"></a>
+                <p>Rice</p>
+            </div>
+    
+            <div>
+               <a href=""><img src="product-img/local.webp" class="local"></a>
+               <p>Local</p>
+            </div>
+    
+            <div>
+                <a href=""><img src="product-img/coffee.webp" class="cat-icon"></a>
+                <p>Coffee</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div>
+            <a href=""><img src="product-img/bubbletea.webp" class="local"></a>
+            <p>Bubble Tea</p>
+            </div>  
+
+            <div>
+                <a href=""><img src="product-img/halal.webp" alt=""></a>
+                <p>Halal</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="prefooter">
+        Why Spiceboy?
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
