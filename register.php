@@ -16,7 +16,6 @@
                 $encryptedpassword = password_hash($password1,PASSWORD_DEFAULT);
                 $sql = "INSERT INTO user(fullname,username,email,password) VALUES ('$name','$username','$email','$encryptedpassword');";
                 $conn->query($sql);
-                echo"<script>isregistered = true;</script>";
                 header("Location: index.html");
             }
             else{
