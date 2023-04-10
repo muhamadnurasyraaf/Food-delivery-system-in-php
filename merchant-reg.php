@@ -1,19 +1,39 @@
 <?php
-    $branding = $_POST['brand'];
+    require_once 'config.php';
+    $branding = htmlspecialchars($_POST['brand']);
 
     if(isset($_POST['submit'])){
-        $brand = $_POST['branding'];
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        $brand = htmlspecialchars($_POST['branding']);
+        $username = htmlspecialchars($_POST['username']);
+        $email = htmlspecialchars($_POST['email']);
+        $password = htmlspecialchars($_POST['password']);
 
-        if($password === $_POST['password1']){
-            $hashedpassword = password_hash($password,PASSWORD_DEFAULT);
+        if(strlen($brand) <= 20 && strlen($username) <= 40 && strlen($email) <= 50){
+            if($password == $_POST['password1']){
+                $hashedpassword = password_hash($password,PASSWORD_DEFAULT);
+                $result = $conn->query("INSERT INTO merchant(brand,username,email,password) VALUES('$brand','$username','$email','$password');");
+                if($result){
+                    //bring into merchant setup page
+                    header("Location: ");
+                }
+                else{
+                    //throw error flasher
+                }
+            }
+            else{
+                //throw error password not match 
+            }
         }
         else{
-            //throw error password not match 
+            echo '$branding or username or email too long';
+            echo ' Branding (20 characters) <br> Username(40 characters) <br> Email (50 characters)';
         }
+
+       
     }
+
+
+
 
 ?>
 
