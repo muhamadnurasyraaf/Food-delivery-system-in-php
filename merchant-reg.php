@@ -2,7 +2,7 @@
     require_once 'config.php';
     $branding = htmlspecialchars($_POST['brand']);
 
-    if(isset($_POST['submit'])){
+    
         $brand = htmlspecialchars($_POST['branding']);
         $username = htmlspecialchars($_POST['username']);
         $email = htmlspecialchars($_POST['email']);
@@ -28,13 +28,6 @@
             echo '$branding or username or email too long';
             echo ' Branding (20 characters) <br> Username(40 characters) <br> Email (50 characters)';
         }
-
-       
-    }
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -96,7 +89,6 @@
             padding: 2em;
             background-color: #171717;
             border-radius: 25px;
-            
         }
         form div{
             display: flex;

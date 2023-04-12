@@ -267,7 +267,7 @@ span{
 .category{
     display: flex;
     flex-direction: column;
-    margin: 8% 10%;
+    margin: 8% 8% 0;
 }
 .category .row div{
     font-weight: bold;
@@ -275,13 +275,11 @@ span{
     margin: 15px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     border-radius: 5px;
-    
 }
 .row{
    display: grid;
    grid-template-columns: 1fr 1fr 1fr 1fr;
    grid-gap: 1em;
-   
 }
 .cat-icon{
     border-radius: 5px;
@@ -289,4 +287,12 @@ span{
 .local{
     width: 322px;
     border-radius: 5px;
+}
+.prefooter{
+    margin: 0 20%;
+}
+.footer{
+    margin-top: 30px;
+    background-color: #eaeff2;
+    padding: 7% 30%;
 }

@@ -1,6 +1,7 @@
 <?php 
+    session_start();
     require_once("config.php");
-
+    include 'flasher.php';
     if(isset($_POST['submit'])){
         $name = $_POST['name'];
         $username = $_POST['username'];
@@ -16,6 +17,8 @@
                 $encryptedpassword = password_hash($password1,PASSWORD_DEFAULT);
                 $sql = "INSERT INTO user(fullname,username,email,password) VALUES ('$name','$username','$email','$encryptedpassword');";
                 $conn->query($sql);
+                $currentid = mysqli_insert_id($conn);
+                $_SESSION['id'] = $currentid;
                 header("Location: index.html");
             }
             else{
@@ -28,7 +31,7 @@
                 ";
             }
         }else{
-            
+           
         }
        
 
@@ -56,6 +59,7 @@
         <img src="delivery-man.png" class="icon">
         <h1>Spice Boy</h1>
     </div>
+
     <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
         <div class="container">
 

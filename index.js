@@ -1,5 +1,5 @@
 
-var isRegistered = false;
+var isRegistered = true;
 
 let loginButton = document.getElementById('login-btn');
 let profile = document.getElementById('profile');
