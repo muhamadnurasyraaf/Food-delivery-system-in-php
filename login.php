@@ -1,20 +1,16 @@
 <?php
     require_once 'config.php';
     session_start();
-    
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-
     if(isset($_POST['submit'])){
+       $username = $_POST['username'];
+       $password = $_POST['password'];
        $result = $conn->query("SELECT * FROM user WHERE username = '$username';");
-
        if($result){
         $data = mysqli_fetch_assoc($result);
         if(password_verify($password,$data['password'])){
             $_SESSION['id'] = $data['id'];
             $_SESSION['login'] = true;
-            header("Location: index.html");
+            header("Location: index.php");
         }
        }
        else{
@@ -54,7 +50,7 @@
             </div>
 
             <input type="submit" value="Enter" name="submit" class="enter">
-            <p>Don't have an account? <a href="/register.html">Register</a></p>
+            <p>Don't have an account? <a href="/register.php">Register</a></p>
         </div>
     </div>
 </form>

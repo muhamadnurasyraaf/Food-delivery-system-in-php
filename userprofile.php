@@ -26,7 +26,7 @@
             <p>Spice Boy</p>
         </div>
         <div class="midnav">
-            <li><a href="#land">Home</a></li>
+            <li><a href="/index.html">Home</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">About</a></li>
             <div class="right">
@@ -65,17 +65,8 @@
                 <div><?= is_null($address) ? 'NOT SET' : $address['country']; ?></div>
             </div>
             <div class="col last">
-                <div><a href="">Edit</a></div>
-                <div><a href="">Edit</a></div>
-                <div><a href="">Edit</a></div>
-                <div><a href="">Edit</a></div>
-                <div> <?= is_null($address) ? '<a href="" class="btn">Set Address</a>' :  null;?></div>
-                <div><a href="">Edit</a></div>
-                <div><a href="">Edit</a></div>
-                <div><a href="">Edit</a></div>
-                <div><a href="">Edit</a></div>
-                <div><a href="">Edit</a></div>
-                <div><a href="">Edit</a></div>
+                <div> <a href="set-address.php" class="btn">Edit Profile</a></div>
+                <div style="margin-top:400px;"> <?= is_null($address) ? '<a href="set-address.php" class="btn">Set Address</a>' :  '<a href="set-address.php" class="btn">Edit Address</a>' ;?></div>
             </div>
     </div>
        

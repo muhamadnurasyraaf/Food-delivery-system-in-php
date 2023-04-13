@@ -16,7 +16,6 @@ body{
     background-color:#ff982f;
     padding: 10%;
     border-radius: 10px;
-   
 }
 h3{
     font-family: 'Poppins',sans-serif;
@@ -50,7 +49,6 @@ h3{
 .last{
     border-top-right-radius:10px;
     border-bottom-right-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 .last div{
     padding-top: 34px;

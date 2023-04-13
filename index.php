@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,8 +26,7 @@
                 <a href="#" class="cart"> <img src="shopping-bag.png" class="bag"></a>
 
                 <div class="user">
-                    <a href="/login.html" class="login-btn" id="login-btn">Login/Register</a>
-                    <a href="userprofile.php" id="profile"> <img src="icons/user.png" class="user-icon"> </a>
+                    <?= isset($_SESSION['login']) ?' <a href="userprofile.php" style ="transform:translateX(120px)"; id="profile"> <img src="icons/user.png" class="user-icon"> </a>': '<a href="/login.php" class="login-btn" id="login-btn">Login/Register</a>' ?>
                 </div>
                 
             </div>
@@ -37,7 +37,7 @@
         <p>Do you own a restaurant?You can use our platform to grow your bussiness</p>
             <form action="merchant-reg.php" method="post" class="in">
                 <input type="text" name="brand" placeholder="Your food brand..." class="brand-text" autocomplete="off">
-                <input type="submit" class="submit-btn" id="mySubmit" value="Sign Up">
+                <input type="submit" name="submit" class="submit-btn" id="mySubmit" value="Sign Up">
             </form>
       </div>
     </div>

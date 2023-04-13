@@ -1,7 +1,6 @@
 <?php 
     session_start();
     require_once("config.php");
-    include 'flasher.php';
     if(isset($_POST['submit'])){
         $name = $_POST['name'];
         $username = $_POST['username'];
@@ -19,19 +18,22 @@
                 $conn->query($sql);
                 $currentid = mysqli_insert_id($conn);
                 $_SESSION['id'] = $currentid;
-                header("Location: index.html");
+                $_SESSION['login'] = true;
+                header("Location: index.php");
             }
             else{
                 echo "
                 <script>
-                    alert('password not match');
-                    document.location.href = 'register.html';
+                    alert('Password does not match');
                 </script>
-                
                 ";
             }
         }else{
-           
+            echo "
+            <script>
+                alert('Email already registered');
+            </script>
+            ";
         }
        
 
@@ -89,7 +91,7 @@
             </div>
 
             <input type="submit" value="Sign Up" name="submit" class="submit-btn">
-            <p>Have an account already ? <a href="/login.html">Login</a></p>
+            <p>Have an account already ? <a href="/login.php">Login</a></p>
            
         </div>
         
