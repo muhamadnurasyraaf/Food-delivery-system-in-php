@@ -12,9 +12,20 @@
             $_SESSION['login'] = true;
             header("Location: index.php");
         }
+        else{
+            echo"
+            <script>
+                alert('Incorrect Password');
+            </script>
+        ";
+        }
        }
        else{
-        echo 'password incorrect';
+        echo"
+             <script>
+            alert('Username not found');
+             </script>
+            ";
        }
 
     }
@@ -51,6 +62,7 @@
 
             <input type="submit" value="Enter" name="submit" class="enter">
             <p>Don't have an account? <a href="/register.php">Register</a></p>
+            <p style="margin-left: 20px;">You already have a merchant? <a href="/merchant-login.php">Merchant Login</a></p>
         </div>
     </div>
 </form>

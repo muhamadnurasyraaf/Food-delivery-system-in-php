@@ -3,59 +3,59 @@
     session_start();
     $currentid = $_SESSION['id'];
 
-    $data = mysqli_fetch_assoc($conn->query("SELECT * FROM address WHERE user_id = '$currentid';"));
-    if(isset($_POST['submit'])){
-        $line1 = $_POST['line1'];
-        $line2 = $_POST['line2'];
-        $postcode = $_POST['postcode'];
-        $area = $_POST['area'];
-        $state = $_POST['state'];
-        $country = $_POST['country'];
-        $qry = "INSERT INTO address(user_id,address_line1,address_line2,postcode,area,state,country)VALUES('$currentid','$line1','$line2','$postcode','$area','$state','$country');";
-
-        $result = $conn->query($qry);
-        if($result){
-            echo"
-                <script>
-                    alert('Address successfully added');
-                </script>
-            ";
-            header("Location: userprofile.php");
-        }
-        else{
-            echo"
-                <script>
-                    alert('Address failed to add');
-                </script>
-            ";
-        }
-    }
-
+    $data = mysqli_fetch_assoc($conn->query("SELECT * FROM user WHERE id = '$currentid';"));
+    
     if(isset($_POST['update'])){
-        $line1 = htmlspecialchars($_POST['line1']);
-        $line2 = htmlspecialchars($_POST['line2']);
-        $postcode = htmlspecialchars($_POST['postcode']);
-        $area = htmlspecialchars($_POST['area']);
-        $state = htmlspecialchars($_POST['state']);
-        $country = htmlspecialchars($_POST['country']);
-        $qry = "UPDATE address SET address_line1 = '$line1',address_line2 = '$line2',postcode = '$postcode',area = '$area',state = '$state',country = '$country' WHERE user_id = '$currentid';";
+        $fullname = $_POST['fname'];
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        
 
-        $result = $conn->query($qry);
-        if($result){
-            echo"
+        if(isset($_POST['password1'])){
+            $pass1 = $_POST['password1'];
+            $pass2 = $_POST['password2'];
+            if($pass1 == $pass2){
+                $hashedpassword = password_hash($pass1,PASSWORD_DEFAULT);
+                $result = $conn->query("UPDATE user SET fullname = '$fullname', username = '$username',email = '$email',password = '$hashedpassword' WHERE id = '$currentid';");
+                if($result){
+                    echo"
+                    <script>
+                        alert('Profile successfully updated');
+                    </script>";
+                    header("Location: userprofile.php");
+                }
+                else{
+                    $msg = mysqli_error($conn);
+                    echo"
+                    <script>
+                        alert('Profile failed to updated : $msg');
+                    </script>";
+                }
+            }
+            else{
+                echo"
                 <script>
-                    alert('Address successfully updated');
+                    alert('Password does not match');
                 </script>
             ";
-            header("Location: userprofile.php");
+            }
+        }else{
+            $result = $conn->query("UPDATE user SET fullname = '$fullname',username = '$username',email = '$email' WHERE id = '$currentid';");
+            if($result){
+                echo "<script>alert('Profile successfully updated')</script>";
+            }else{
+                $msg = mysqli_error($conn);
+                echo"
+                    <script>
+                        alert('Profile failed to update : $msg');
+                    </script>
+                ";
+            }
         }
-        else{
-            echo"
-                <script>
-                    alert('Address failed to update');
-                </script>
-            ";
-        }
+        
+        
+       
+        
     }
 ?>
 
@@ -67,19 +67,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="delivery-man.png" type="image/x-icon">
     <link rel="stylesheet" href="/styles/set-address.css">
-    <title>Edit Address</title>
+    <title>Edit Profile</title>
 </head>
 <body>
     <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
     <div class="form">
         <h3>USER ADDRESS</h3>
-        <input type="text" name="line1" placeholder="Address Line 1" autocomplete="off">
-        <input type="text" name="line2" placeholder="Address Line 2" autocomplete="off">
-        <input type="text" name="postcode" placeholder="PostCode" autocomplete="off">
-        <input type="text" name="area" placeholder="Area" autocomplete="off">
-        <input type="text" name="state" placeholder="State" autocomplete="off">
-        <input type="text" name="country" placeholder="Country" autocomplete="off">
-        <?=  is_null($data) ? '<input type="submit" value="Submit" name="submit" class="submit-btn">' : '<input type="submit" value="update" name="update" class="submit-btn">'?>
+        <input type="text" name="fname" placeholder="Full Name" autocomplete="off" value="<?= $data['fullname'];?>" required>
+        <input type="text" name="username" placeholder="Username" autocomplete="off" value="<?= $data['username'];?>" required>
+        <input type="text" name="email" placeholder="Email" autocomplete="off" value="<?= $data['email'];?>" required>
+        <input type="password" name="password1" placeholder="Password" autocomplete="off">
+        <input type="password" name="password2" placeholder="Password Confirmation" autocomplete="off">
+        <input type="submit" value="Update" name="update" class="submit-btn">
     </div>
     <div class="submit-btn">
         <a href="userprofile.php"> &larr; Back to your profile</a>

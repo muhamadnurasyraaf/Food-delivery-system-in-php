@@ -65,7 +65,7 @@
                 <div><?= is_null($address) ? 'NOT SET' : $address['country']; ?></div>
             </div>
             <div class="col last">
-                <div> <a href="set-address.php" class="btn">Edit Profile</a></div>
+                <div> <a href="update-profile.php" class="btn">Edit Profile</a></div>
                 <div style="margin-top:400px;"> <?= is_null($address) ? '<a href="set-address.php" class="btn">Set Address</a>' :  '<a href="set-address.php" class="btn">Edit Address</a>' ;?></div>
             </div>
     </div>

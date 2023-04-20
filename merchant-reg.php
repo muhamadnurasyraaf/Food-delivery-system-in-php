@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once 'config.php';
     $branding = htmlspecialchars($_POST['brand']);
 
@@ -11,23 +12,37 @@
         if(strlen($brand) <= 20 && strlen($username) <= 40 && strlen($email) <= 50){
             if($password == $_POST['password1']){
                 $hashedpassword = password_hash($password,PASSWORD_DEFAULT);
-                $result = $conn->query("INSERT INTO merchant(brand,username,email,password) VALUES('$brand','$username','$email','$password');");
+                $result = $conn->query("INSERT INTO merchant(brand,username,email,password) VALUES('$brand','$username','$email','$hashedpassword');");
                 if($result){
                     //bring into merchant setup page
-                    header("Location: ");
+                    $merchid = mysqli_insert_id($conn);
+                    header("Location: merchantpage.php");
+                    $_SESSION['merchant_id'] = $merchid;
                 }
                 else{
-                    //throw error flasher
+                    $msg = mysqli_error($conn);
+                    echo "
+                    <script>
+                        alert('Failed to register ;ERR : $msg');
+                    </script>
+                ";
                 }
             }
             else{
-                //throw error password not match 
+                echo "
+                <script>
+                    alert('Password not match');
+                </script>
+                ";
             }
         }
         else{
-            echo '$branding or username or email too long';
-            echo ' Branding (20 characters) <br> Username(40 characters) <br> Email (50 characters)';
-        }
+            echo "
+            <script>
+                alert('Brand/Username/Email too long');
+            </script>
+            ";
+        }   
     }
     
        

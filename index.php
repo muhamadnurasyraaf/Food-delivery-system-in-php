@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php session_start(); 
+    if(isset($_SESSION['merchlogin'])){
+        header("Location: merchantpage.php");
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -206,7 +211,6 @@
                 <li><a href="">Help</a></li>
                 <li><a href="">FAQs</a></li>
                 <li><a href="">Be a SpiceBoy Merchant</a></li>
-                <li><a href="">Drive With Grab</a></li>
             </div>
         </div>
     </div>
