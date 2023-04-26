@@ -26,9 +26,9 @@ h3{
     background-color: #ff652f;
     color: white;
     padding: 25px;
-    width: 100%;
     display: flex;
     flex-direction: column;
+    z-index: 100;
 }
 .sidebar-header{
     display: flex;
@@ -37,6 +37,7 @@ h3{
     font-weight: bold;
     gap: 10px;
     font-size: 20px;
+    z-index: 100;
 }
 body{
     font-family: 'Montserrat',sans-serif;
@@ -124,4 +125,13 @@ span{
 .styled-table tbody tr.active-row {
     font-weight: bold;
     color: #009879;
+}
+.order p{
+    transform: translateY(-400px);
+}
+.order-btn{
+    color: #dddddd;
+    padding: 10px;
+    background-color: #ff652f;
+    border-radius: 5px;
 }

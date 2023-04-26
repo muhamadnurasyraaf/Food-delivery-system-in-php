@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Poppins:wght@400;600;700&display=swap');
+body{
+    padding: 0;
+    margin: 0;
+}
+.navbar{
+    font-weight: bold;
+    font-family: 'Montserrat',sans-serif;
+    display: flex;
+    background-color: #ff652f;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    height: 80px;
+    padding: 10px;
+}
+a{
+    text-decoration:none;
+    color: white;
+}
+.mid ul{
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+    gap: 10px;
+}
+.navbar div{
+    display: flex;
+    align-items: center;
+}
+.content{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns:  20% 20% 20% 20%;
+    gap: 10%;
+    margin: 30px 15%;
+}
+.merch{
+    border-radius: 10px;
+    color: white;
+    background-color: #ff652f;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 10px 30px;
+    font-family: 'Poppins',sans-serif;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 150px;
+}
+.merch div{
+    display: flex;
+    justify-content: space-around;
+    gap: 5px;
+}
+.merch-icon{
+    width: 100%;
+}
+.merch-brand{
+    text-decoration: overline;
+    font-size: 18px;
+}
+h3{
+    margin-left:15%;
+    font-family: 'Poppins',sans-serif;
+    text-decoration: overline;
+}

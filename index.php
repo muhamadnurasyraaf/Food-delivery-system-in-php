@@ -25,7 +25,7 @@
         </div>
         <div class="mid">
             <li><a href="#land">Home</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="store.php">Stores</a></li>
             <li><a href="#">About</a></li>
             <div class="right">
                 <a href="#" class="cart"> <img src="shopping-bag.png" class="bag"></a>
@@ -51,7 +51,7 @@
         <h1>Ramadan Promo by <span>Spice Boy</span></h1>
         <div class="food">
             <div class="desc">
-                <a href=""><img src="product-img/burgerking.webp" class="img promo-img"></a>
+                <a href="shop.php?merchant_id=8"><img src="product-img/burgerking.webp" class="img promo-img"></a>
                 <div class="d">
                     <h4>Burger King - KL Sentral</h4>
                     <p>Halal, Western, Fast Food, Burgers, Grill</p>
@@ -70,7 +70,7 @@
             </div>
             
             <div class="desc">
-                <a href=""><img src="product-img/kfc.webp" class="img promo-img"></a>
+                <a href="shop.php?merchant_id=7"><img src="product-img/kfc.webp" class="img promo-img"></a>
                 <div class="d">
                     <h4>KFC - Permata Complex</h4>
                     <p>Burgers, Chicken, Fast Food, Fried Chicken</p>
@@ -89,7 +89,7 @@
             </div>
             
             <div class="desc">
-                <a href=""><img src="product-img/mawar.webp" class="img promo-img"></a>
+                <a href="shop.php?merchant_id=9"><img src="product-img/mawar.webp" class="img promo-img"></a>
                 <div class="d">
                     <h4>Mawar Merah Catering [&] Services - Tun Tan Cheng Lock</h4>
                     <p>Local, Malaysian,Rice</p>
@@ -108,7 +108,7 @@
             </div>
             
             <div class="desc">
-                <a href=""><img src="product-img/mcd.webp" class="img promo-img"></a>
+                <a href="shop.php?merchant_id=6"><img src="product-img/mcd.webp" class="img promo-img"></a>
                 <div class="d">
                     <h4>McDonald's -  M2 Mall 285</h4>
                     <p>Halal, McDelivery Prices , Burgers , Fast Food ,Fried Chicken</p>
