@@ -77,3 +77,7 @@ span{
 .end p{
     font-family: 'Poppins',sans-serif;
 }
+.product-icon{
+    width: 100%;
+    border-radius: 5px;
+}
