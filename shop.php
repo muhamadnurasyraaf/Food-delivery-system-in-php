@@ -43,7 +43,7 @@
            <div>
             <span><?= $product['product_name']; ?></span>
             <p><?= $product['price'];?></p>
-            <input type="submit" value="Order Now" name="ordered" class="order-btn">
+            <a href="checkout.php?productid=<?= $product['id'];?>" class="order-btn">Order Now</a>
            </div>
         </div>
       <?php endwhile ; ?>
