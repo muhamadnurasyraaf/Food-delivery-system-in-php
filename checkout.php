@@ -8,8 +8,34 @@
     $product = mysqli_fetch_assoc($conn->query("SELECT * FROM product WHERE id = '$productid';"));
     $address = mysqli_fetch_assoc($conn->query("SELECT * FROM address WHERE user_id = '$userid';"));
     
+    $merchant_id = $product['merchant_id'];
+    $receiver_name = $user['fullname'];
+    $product_name = $product['product_name'];
+    $address_line1 = $address['address_line1'];
+    $address_line2 = $address['address_line2'];
+    $postcode = $address['postcode'];
+    $area = $address['area'];
+    $state = $address['state'];
+    $country = $address['country'];
+    $total = $product['price'];
+
+    $order = mysqli_fetch_assoc($conn->query("SELECT COUNT(*) FROM orderdetails;"));
+    $count = (int)$order;
+    $orderid = $count;
+    
     if(isset($_POST['checkout'])){
-        $conn->query("");
+        $result = $conn->query("INSERT INTO orderdetails(user_id,merchant_id,receiver_name,product,address_line1,address_line2,postcode,area,state,country,total) VALUES('$userid','$merchant_id','$receiver_name','$product_name','$address_line1','$address_line2','$postcode','$area','$state','$country','$total');");
+        if($result){
+            header("Location: index.php");
+        }
+        else{
+            $message = mysqli_error($conn);
+            echo "
+                alert(
+                    'failed to checkout : $message'
+                );
+            ";
+        }
     }
     
    
@@ -29,7 +55,7 @@
     <div class="nav"><img src="delivery-man.png" class="spice-icon"> <p>Spice Boy</p></div>
     <div class="container">
         <h3>Your Order Details</h3>
-        <div><span>Order ID : </span></div>
+        <div><span>Order ID : </span><?= is_null($orderid) ? 1 :$orderid?></div>
         <div><span>Receiver Name : </span><?= $user['fullname'];?></div>
         <div><span>Product : </span><?= $product['product_name'];?></div>
         <div class="add">Address</div>
