@@ -8,32 +8,39 @@
     $product = mysqli_fetch_assoc($conn->query("SELECT * FROM product WHERE id = '$productid';"));
     $address = mysqli_fetch_assoc($conn->query("SELECT * FROM address WHERE user_id = '$userid';"));
     
-    $merchant_id = $product['merchant_id'];
-    $receiver_name = $user['fullname'];
-    $product_name = $product['product_name'];
-    $address_line1 = $address['address_line1'];
-    $address_line2 = $address['address_line2'];
-    $postcode = $address['postcode'];
-    $area = $address['area'];
-    $state = $address['state'];
-    $country = $address['country'];
-    $total = $product['price'];
-
-    $order = mysqli_fetch_assoc($conn->query("SELECT COUNT(*) FROM orderdetails;"));
-    $count = (int)$order;
-    $orderid = $count;
+    
+    
     
     if(isset($_POST['checkout'])){
+
+        $product_id = $productid;
+        $user = mysqli_fetch_assoc($conn->query("SELECT * FROM user WHERE id = '$userid';"));
+        $product = mysqli_fetch_assoc($conn->query("SELECT * FROM product WHERE id = '$product_id';"));
+        $address = mysqli_fetch_assoc($conn->query("SELECT * FROM address WHERE user_id = '$userid';"));
+        $merchant_id = $product['merchant_id'];
+        $receiver_name = $user['fullname'];
+        $product_name = $product['product_name'];
+        $address_line1 = $address['address_line1'];
+        $address_line2 = $address['address_line2'];
+        $postcode = $address['postcode'];
+        $area = $address['area'];
+        $state = $address['state'];
+        $country = $address['country'];
+        $total = $product['price'];
+
         $result = $conn->query("INSERT INTO orderdetails(user_id,merchant_id,receiver_name,product,address_line1,address_line2,postcode,area,state,country,total) VALUES('$userid','$merchant_id','$receiver_name','$product_name','$address_line1','$address_line2','$postcode','$area','$state','$country','$total');");
         if($result){
+            echo "
+            <script>
+                alert('succeed');
+            </script> 
+            ";
             header("Location: index.php");
         }
         else{
             $message = mysqli_error($conn);
             echo "
-                alert(
-                    'failed to checkout : $message'
-                );
+                <script>alert('failed to checkout : $message');</script>
             ";
         }
     }
@@ -55,7 +62,7 @@
     <div class="nav"><img src="delivery-man.png" class="spice-icon"> <p>Spice Boy</p></div>
     <div class="container">
         <h3>Your Order Details</h3>
-        <div><span>Order ID : </span><?= is_null($orderid) ? 1 :$orderid?></div>
+
         <div><span>Receiver Name : </span><?= $user['fullname'];?></div>
         <div><span>Product : </span><?= $product['product_name'];?></div>
         <div class="add">Address</div>
@@ -67,7 +74,7 @@
         <div><span>Country : </span><?= $address['country'];?></div>
         <div><span>Total : </span>RM<?= $product['price']; ?></div>
         <div><span>Payment Option : </span>Cash</div>
-        <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
+        <form action="" method="post">
             <input type="submit" value="Checkout" name="checkout" class="checkout-btn">
         </form>
     </div>
