@@ -30,12 +30,8 @@
 
         $result = $conn->query("INSERT INTO orderdetails(user_id,merchant_id,receiver_name,product,address_line1,address_line2,postcode,area,state,country,total) VALUES('$userid','$merchant_id','$receiver_name','$product_name','$address_line1','$address_line2','$postcode','$area','$state','$country','$total');");
         if($result){
-            echo "
-            <script>
-                alert('succeed');
-            </script> 
-            ";
-            header("Location: index.php");
+            header("Location: orderstats.php");
+            $_SESSION['currentorder'] = mysqli_insert_id($conn);
         }
         else{
             $message = mysqli_error($conn);
