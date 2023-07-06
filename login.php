@@ -4,10 +4,8 @@
     if(isset($_POST['submit'])){
        $username = $_POST['username'];
        $password = $_POST['password'];
-       $result = $conn->query("SELECT * FROM user WHERE username = '$username';");
+       $result = $conn->query("SELECT * FROM user WHERE username = '$username' AND password  = '$password';");
        if($result){
-        $data = mysqli_fetch_assoc($result);
-        if(password_verify($password,$data['password'])){
             $_SESSION['id'] = $data['id'];
             $_SESSION['login'] = true;
             header("Location: index.php");
@@ -15,7 +13,7 @@
         else{
             echo"
             <script>
-                alert('Incorrect Password');
+                alert('Incorrect Username or Password');
             </script>
         ";
         }
