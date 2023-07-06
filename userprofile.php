@@ -1,10 +1,13 @@
 <?php 
     require_once 'config.php';
     session_start();
+    if(isset($_SESSION['id'])){
     $id = $_SESSION['id'];
-
     $data = mysqli_fetch_assoc($conn->query("SELECT * FROM user WHERE id = $id;"));
-    $address = mysqli_fetch_assoc($conn->query("SELECT * FROM address WHERE user_id =$id;"));
+    $address = mysqli_fetch_assoc($conn->query("SELECT * FROM address WHERE user_id = $id;"));
+
+    var_dump($_SESSION['id']);
+    }
 ?>
 
 <!DOCTYPE html>

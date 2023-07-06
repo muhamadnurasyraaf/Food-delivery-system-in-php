@@ -4,9 +4,10 @@
     if(isset($_POST['submit'])){
        $username = $_POST['username'];
        $password = $_POST['password'];
-       $result = $conn->query("SELECT * FROM user WHERE username = '$username' AND password  = '$password';");
+       $result = $conn->query("SELECT * FROM user WHERE username = $username AND password  = $password;");
        if($result){
-            $_SESSION['id'] = $data['id'];
+            $user = mysqli_fetch_assoc($result);
+            $_SESSION['id'] = $user['id'];
             $_SESSION['login'] = true;
             header("Location: index.php");
         }
@@ -17,13 +18,6 @@
             </script>
         ";
         }
-       }
-       else{
-        echo"
-             <script>
-            alert('Username not found');
-             </script>
-            ";
        }
 ?>
 
@@ -52,7 +46,7 @@
             </div>
 
             <div class="inputBox">
-                <input type="password" name="password" required="required">
+                <input type="password" name="password">
                 <span>Password</span>
             </div>
 

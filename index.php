@@ -2,7 +2,7 @@
     if(isset($_SESSION['merchlogin'])){
         header("Location: merchantpage.php");
     }
-
+   
 ?>
 <!DOCTYPE html>
 <html lang="en">
