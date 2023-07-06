@@ -26,7 +26,7 @@
             <p>Spice Boy</p>
         </div>
         <div class="midnav">
-            <li><a href="/index.html">Home</a></li>
+            <li><a href="/index.php">Home</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">About</a></li>
             <div class="right">

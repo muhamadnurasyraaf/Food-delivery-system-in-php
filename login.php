@@ -25,8 +25,6 @@
              </script>
             ";
        }
-
-    }
 ?>
 
 <!DOCTYPE html>

@@ -35,6 +35,7 @@
     <div class="details">
         <h3>Your Order Details</h3>
         <div>
+            <div> <?= $order?></div>
             <div>Order ID : <?= $order['id'];?></div>
             <div>Receiver Name : <?= $order['receiver_name'];?></div>
             <div>Product : <?= $order['product'];?></div>
