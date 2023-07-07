@@ -4,7 +4,8 @@
     $password = "1234";
     $db_name = "fooddelivery";
 
-    $conn = mysqli_connect($hostname,$username,$password,$db_name);
+    $conn = new PDO("mysql:host=localhost;dbname=fooddelivery",$username,$password);
+    $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
 
    if(!$conn){
     die(mysqli_connect_error());

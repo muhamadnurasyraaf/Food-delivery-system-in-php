@@ -4,21 +4,30 @@
     if(isset($_POST['submit'])){
        $username = $_POST['username'];
        $password = $_POST['password'];
-       $result = $conn->query("SELECT * FROM user WHERE username = $username AND password  = $password;");
-       if($result){
-            $user = mysqli_fetch_assoc($result);
-            $_SESSION['id'] = $user['id'];
+        
+       $stmt = $conn->prepare("SELECT * FROM user WHERE username = :user");
+       $stmt->bindParam(":user",$username);
+       $stmt->execute();
+        $data = $stmt->fetch();
+
+        if(empty($password)){
+            echo "
+                <script>alert('please enter your password');</script>
+            ";
+        }
+
+       if($stmt->rowCount() > 0){
+        if($password == $data['password']){
+            $_SESSION['id'] = $data['id'];
             $_SESSION['login'] = true;
-            header("Location: index.php");
+            header("location: userprofile.php");
+        }else{
+            echo '<script> alert("Incorrect password or username);</script>';
         }
-        else{
-            echo"
-            <script>
-                alert('Incorrect Username or Password');
-            </script>
-        ";
-        }
+       }else{
+        echo '<script> alert("invalid username");</script>';
        }
+    }
 ?>
 
 <!DOCTYPE html>
